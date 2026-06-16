@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { ui, type Language } from '../../i18n/ui';
+
+export function getStaticPaths() {
+    return [
+        { params: { lang: 'es' } },
+        { params: { lang: 'en' } },
+        { params: { lang: 'it' } }
+    ];
+}
+
+const { lang } = Astro.params;
+const currentLang = lang as Language;
+const t = ui[currentLang];
+
+const articles = await getCollection('articles', ({ data }) => {
+    return data.lang === currentLang && data.draft === false;
+});
+
+const sortedArticles = articles.sort(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<Layout
+    lang={currentLang}
+    title={`${t.articles} | ${t.siteName}`}
+    description={t.footerText}
+    currentPath={`/${currentLang}/articles/`}
+>
+    <section class="container wide section-block">
+        <h1>{t.articles}</h1>
+
+        <div class="article-list">
+            {sortedArticles.map((article) => (
+                <article class="article-list-item">
+                    <p class="category">
+                        {article.data.category} · {article.data.date.toLocaleDateString(currentLang)}
+                    </p>
+                        <h2>
+                            <a href={`/${currentLang}/articles/${article.id.split('/')[0]}/`}>
+                                {article.data.title}
+                            </a>
+                        </h2>
+                    <p>{article.data.description}</p>
+                </article>
+            ))}
+        </div>
+    </section>
+</Layout>

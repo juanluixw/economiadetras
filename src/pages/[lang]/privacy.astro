@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { ui, type Language } from '../../i18n/ui';
+
+export function getStaticPaths() {
+    return [
+        { params: { lang: 'es' } },
+        { params: { lang: 'en' } },
+        { params: { lang: 'it' } }
+    ];
+}
+
+const { lang } = Astro.params;
+const currentLang = lang as Language;
+const t = ui[currentLang];
+---
+
+<Layout
+    lang={currentLang}
+    title={`${t.privacy} | ${t.siteName}`}
+    description={t.privacyDescription}
+    currentPath={`/${currentLang}/privacy/`}
+>
+    <section class="container article-page">
+        <p class="category">{t.privacy}</p>
+        <h1>{t.privacyTitle}</h1>
+
+        <div class="article-content">
+            <p>{t.privacyIntro}</p>
+
+            <h2>{t.privacyControllerTitle}</h2>
+            <p>{t.privacyControllerText}</p>
+
+            <h2>{t.privacyDataTitle}</h2>
+            <p>{t.privacyDataText}</p>
+
+            <h2>{t.privacyPurposeTitle}</h2>
+            <p>{t.privacyPurposeText}</p>
+
+            <h2>{t.privacyLegalBasisTitle}</h2>
+            <p>{t.privacyLegalBasisText}</p>
+
+            <h2>{t.privacyRetentionTitle}</h2>
+            <p>{t.privacyRetentionText}</p>
+
+            <h2>{t.privacyRightsTitle}</h2>
+            <p>{t.privacyRightsText}</p>
+
+            <h2>{t.privacyCookiesTitle}</h2>
+            <p>{t.privacyCookiesText}</p>
+
+            <h2>{t.privacyContactTitle}</h2>
+            <p>
+                <a href="mailto:jlciudad@economiadetras.com">
+                    jlciudad@economiadetras.com
+                </a>
+            </p>
+        </div>
+    </section>
+</Layout>

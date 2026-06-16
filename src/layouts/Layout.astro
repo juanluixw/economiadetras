@@ -1,0 +1,95 @@
+---
+import '../styles/global.css';
+import { ui, type Language } from '../i18n/ui';
+
+const {
+    title,
+    description,
+    lang = 'es',
+    currentPath = '/'
+} = Astro.props;
+
+const currentLang = lang as Language;
+const t = ui[currentLang];
+
+const pageTitle = title ?? t.siteName;
+const pageDescription = description ?? t.footerText;
+
+const paths = {
+    es: {
+        home: '/es/',
+        articles: '/es/articles/',
+        about: '/es/about/',
+        contact: '/es/contact/',
+        privacy: '/es/privacy/'
+    },
+    en: {
+        home: '/en/',
+        articles: '/en/articles/',
+        about: '/en/about/',
+        contact: '/en/contact/',
+        privacy: '/en/privacy/'
+    },
+    it: {
+        home: '/it/',
+        articles: '/it/articles/',
+        about: '/it/about/',
+        contact: '/it/contact/',
+        privacy: '/it/privacy/'
+    }
+};
+
+const p = paths[currentLang];
+
+const getLocalizedPath = (targetLang: Language) => {
+    return currentPath.replace(/^\/(es|en|it)/, `/${targetLang}`);
+};
+---
+
+<!DOCTYPE html>
+<html lang={currentLang}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription}>
+    <link rel="canonical" href={`https://economiadetras.com${currentPath}`}>
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+</head>
+
+<body>
+    <header>
+        <div class="container wide header-inner">
+            <a class="logo" href={p.home}>
+                <img src="/images/dt-logo.png" alt="DT" class="logo-icon" />
+                <span>{t.siteName}</span>
+            </a>
+            <nav>
+                <a href={p.home}>{t.home}</a>
+                <a href={p.articles}>{t.articles}</a>
+                <a href={p.about}>{t.about}</a>
+                <a href={p.contact}>{t.contact}</a>
+            </nav>
+
+            <div class="language-switcher">
+                <a href={getLocalizedPath('es')}>ES</a>
+                <a href={getLocalizedPath('en')}>EN</a>
+                <a href={getLocalizedPath('it')}>IT</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <slot />
+    </main>
+
+    <footer>
+        <div class="container wide footer-inner">
+            <p>© 2026 {t.siteName}</p>
+            <a href={p.privacy}>{t.privacy}</a>
+        </div>
+    </footer>
+</body>
+</html>

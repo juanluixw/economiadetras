@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { ui, type Language } from '../../i18n/ui';
+
+export function getStaticPaths() {
+    return [
+        { params: { lang: 'es' } },
+        { params: { lang: 'en' } },
+        { params: { lang: 'it' } }
+    ];
+}
+
+const { lang } = Astro.params;
+const currentLang = lang as Language;
+const t = ui[currentLang];
+---
+
+<Layout
+    lang={currentLang}
+    title={`${t.contact} | ${t.siteName}`}
+    description={t.contactDescription}
+    currentPath={`/${currentLang}/contact/`}
+>
+    <section class="container article-page">
+        <p class="category">{t.contact}</p>
+
+        <h1>{t.contactTitle}</h1>
+
+        <p class="article-description">
+            {t.contactDescription}
+        </p>
+
+        <div class="contact-box">
+            <p>{t.contactEmailText}</p>
+
+            <a href="mailto:jlciudad@economiadetras.com">
+                jlciudad@economiadetras.com
+            </a>
+
+            <p class="contact-secondary">{t.contactLinkedinText}</p>
+
+            <a
+                href="https://www.linkedin.com/in/juan-luis-ciudad"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                LinkedIn →
+            </a>
+        </div>
+    </section>
+</Layout>

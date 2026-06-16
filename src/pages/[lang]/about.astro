@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { ui, type Language } from '../../i18n/ui';
+
+export function getStaticPaths() {
+    return [
+        { params: { lang: 'es' } },
+        { params: { lang: 'en' } },
+        { params: { lang: 'it' } }
+    ];
+}
+
+const { lang } = Astro.params;
+const currentLang = lang as Language;
+const t = ui[currentLang];
+---
+
+<Layout
+    lang={currentLang}
+    title={`${t.about} | ${t.siteName}`}
+    description={t.aboutDescription}
+    currentPath={`/${currentLang}/about/`}
+>
+    <section class="container wide about-page">
+
+        <div class="about-text">
+            <p class="category">{t.about}</p>
+
+            <h1>{t.aboutTitle}</h1>
+
+            <div class="article-content">
+                <p>{t.aboutParagraph1}</p>
+                <p>{t.aboutParagraph2}</p>
+                <p>{t.aboutParagraph3}</p>
+                <p>{t.aboutParagraph4}</p>
+                <p>{t.aboutParagraph5}</p>
+                <p>{t.aboutParagraph6}</p>
+            </div>
+
+            <div class="about-social">
+                <a
+                    href="https://www.linkedin.com/in/juan-luis-ciudad"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    LinkedIn →
+                </a>
+            </div>
+        </div>
+
+        <div class="about-photo-wrapper">
+            <img
+                src="/images/juan-luis-ciudad.jpg"
+                alt="Juan Luis Ciudad"
+                class="about-photo"
+            />
+        </div>
+
+    </section>
+</Layout>

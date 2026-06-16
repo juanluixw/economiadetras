@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ui, type Language } from '../i18n/ui';
+
+const path = Astro.url.pathname;
+
+const detectedLang = path.startsWith('/en/')
+    ? 'en'
+    : path.startsWith('/it/')
+        ? 'it'
+        : 'es';
+
+const currentLang = detectedLang as Language;
+const t = ui[currentLang];
+---
+
+<Layout
+    lang={currentLang}
+    title={`${t.notFoundTitle} | ${t.siteName}`}
+    description={t.notFoundDescription}
+    currentPath={`/${currentLang}/404/`}
+>
+    <section class="container article-page">
+        <p class="category">404</p>
+
+        <h1>{t.notFoundTitle}</h1>
+
+        <p class="article-description">
+            {t.notFoundDescription}
+        </p>
+
+        <div class="article-content">
+            <p>{t.notFoundText}</p>
+
+            <p>
+                <a class="read-more" href={`/${currentLang}/`}>
+                    {t.backHome}
+                </a>
+            </p>
+        </div>
+    </section>
+</Layout>

@@ -1,0 +1,85 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { ui, type Language } from '../../i18n/ui';
+
+export function getStaticPaths() {
+    return [
+        { params: { lang: 'es' } },
+        { params: { lang: 'en' } },
+        { params: { lang: 'it' } }
+    ];
+}
+
+const { lang } = Astro.params;
+const currentLang = lang as Language;
+const t = ui[currentLang];
+
+const getArticleSlug = (id: string) => id.split('/')[0];
+
+const articles = await getCollection('articles', ({ data }) => {
+    return data.lang === currentLang && data.draft === false;
+});
+
+const sortedArticles = articles.sort(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const featuredArticle = sortedArticles.find((article) => article.data.featured) ?? sortedArticles[0];
+
+const latestArticles = sortedArticles
+    .filter((article) => article.id !== featuredArticle?.id)
+    .slice(0, 3);
+
+const articleBasePath = `/${currentLang}/articles`;
+---
+
+<Layout
+    lang={currentLang}
+    title={t.siteName}
+    description={t.footerText}
+    currentPath={`/${currentLang}/`}
+>
+    <section class="container wide hero-home">
+        <div class="hero-text">
+            <h1>{t.heroTitle}</h1>
+            <p>{t.heroSubtitle}</p>
+        </div>
+
+        {featuredArticle && (
+            <aside class="hero-box">
+                <p class="box-label">{t.featured}</p>
+                <h2>{featuredArticle.data.title}</h2>
+                <p>{featuredArticle.data.description}</p>
+                <a class="button" href={`${articleBasePath}/${getArticleSlug(featuredArticle.id)}/`}>
+                    {t.readMore}
+                </a>
+            </aside>
+        )}
+    </section>
+
+    <section class="container wide section-block">
+        <h2>{t.latestAnalysis}</h2>
+
+        {sortedArticles.length === 0 && (
+            <p>{t.noArticles}</p>
+        )}
+
+        <div class="cards-grid">
+            {latestArticles.map((article) => (
+                <article class="card">
+                    <p class="category">
+                        {article.data.category} · {article.data.date.toLocaleDateString(currentLang)}
+                    </p>
+
+                    <h3>{article.data.title}</h3>
+                    <p>{article.data.description}</p>
+
+                    <a class="read-more" href={`${articleBasePath}/${getArticleSlug(article.id)}/`}>
+                        {t.readMore}
+                    </a>
+                </article>
+            ))}
+        </div>
+    </section>
+</Layout>

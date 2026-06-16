@@ -1,0 +1,92 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import { ui, type Language } from '../../../i18n/ui';
+
+export async function getStaticPaths() {
+    const articles = await getCollection('articles', ({ data }) => {
+        return data.draft === false;
+    });
+
+    return articles.map((article) => {
+        const slug = article.id.split('/')[0];
+
+        return {
+            params: {
+                lang: article.data.lang,
+                slug
+            },
+            props: {
+                article,
+                slug
+            }
+        };
+    });
+}
+
+const { article, slug } = Astro.props;
+const currentLang = article.data.lang as Language;
+const t = ui[currentLang];
+
+const { Content } = await render(article);
+
+const relatedArticles = (
+    await getCollection('articles', ({ data }) => {
+        return (
+            data.lang === currentLang &&
+            data.draft === false
+        );
+    })
+)
+    .filter((item) => item.id !== article.id)
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+    .slice(0, 2);
+---
+
+<Layout
+    lang={currentLang}
+    title={`${article.data.title} | ${t.siteName}`}
+    description={article.data.description}
+    currentPath={`/${currentLang}/articles/${slug}/`}
+>
+    <article class="container article-page">
+        <p class="category">
+            {article.data.category} · {article.data.date.toLocaleDateString(currentLang)}
+        </p>
+
+        <h1>{article.data.title}</h1>
+
+        <p class="article-description">{article.data.description}</p>
+
+        <div class="article-content">
+            <Content />
+        </div>
+    </article>
+
+    {relatedArticles.length > 0 && (
+        <section class="container section-block">
+            <h2>{t.moreAnalysis}</h2>
+
+            <div class="cards-grid">
+                {relatedArticles.map((item) => (
+                    <article class="card">
+                        <p class="category">
+                            {item.data.category} · {item.data.date.toLocaleDateString(currentLang)}
+                        </p>
+
+                        <h3>{item.data.title}</h3>
+
+                        <p>{item.data.description}</p>
+
+                        <a
+                            class="read-more"
+                            href={`/${currentLang}/articles/${item.id.split('/')[0]}/`}
+                        >
+                            {t.readMore}
+                        </a>
+                    </article>
+                ))}
+            </div>
+        </section>
+    )}
+</Layout>
