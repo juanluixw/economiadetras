@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- HOME -->
+  <url>
+    <loc>https://economiadetras.com/es/</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/"/>
+  </url>
+  <url>
+    <loc>https://economiadetras.com/en/</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/"/>
+  </url>
+  <url>
+    <loc>https://economiadetras.com/it/</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/"/>
+  </url>
+
+  <!-- LISTADO DE ARTÍCULOS -->
+  <url>
+    <loc>https://economiadetras.com/es/articles/</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/articles/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/articles/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/articles/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/articles/"/>
+  </url>
+  <url>
+    <loc>https://economiadetras.com/en/articles/</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/articles/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/articles/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/articles/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/articles/"/>
+  </url>
+  <url>
+    <loc>https://economiadetras.com/it/articles/</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/articles/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/articles/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/articles/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/articles/"/>
+  </url>
+
+  <!-- ARTÍCULO: BCE TIPOS 2026 -->
+  <url>
+    <loc>https://economiadetras.com/es/articles/bce-tipos-2026/</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/articles/bce-tipos-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/articles/bce-tipos-2026/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/articles/bce-tipos-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/articles/bce-tipos-2026/"/>
+  </url>
+  <url>
+    <loc>https://economiadetras.com/en/articles/bce-tipos-2026/</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/articles/bce-tipos-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/articles/bce-tipos-2026/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/articles/bce-tipos-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/articles/bce-tipos-2026/"/>
+  </url>
+  <url>
+    <loc>https://economiadetras.com/it/articles/bce-tipos-2026/</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/articles/bce-tipos-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/articles/bce-tipos-2026/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/articles/bce-tipos-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/articles/bce-tipos-2026/"/>
+  </url>
+
+  <!-- ARTÍCULO: BERNABÉU -->
+  <url>
+    <loc>https://economiadetras.com/es/articles/2026-06-05-bernabeu/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/articles/2026-06-05-bernabeu/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/articles/2026-06-05-bernabeu/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/articles/2026-06-05-bernabeu/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/articles/2026-06-05-bernabeu/"/>
+  </url>
+  <url>
+    <loc>https://economiadetras.com/en/articles/2026-06-05-bernabeu/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/articles/2026-06-05-bernabeu/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/articles/2026-06-05-bernabeu/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/articles/2026-06-05-bernabeu/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/articles/2026-06-05-bernabeu/"/>
+  </url>
+  <url>
+    <loc>https://economiadetras.com/it/articles/2026-06-05-bernabeu/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/articles/2026-06-05-bernabeu/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/articles/2026-06-05-bernabeu/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/articles/2026-06-05-bernabeu/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/articles/2026-06-05-bernabeu/"/>
+  </url>
+
+  <!-- EL PROYECTO / ABOUT -->
+  <url>
+    <loc>https://economiadetras.com/es/about/</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/about/"/>
+  </url>
+  <url>
+    <loc>https://economiadetras.com/en/about/</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/about/"/>
+  </url>
+  <url>
+    <loc>https://economiadetras.com/it/about/</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/about/"/>
+  </url>
+
+  <!-- CONTACTO -->
+  <url>
+    <loc>https://economiadetras.com/es/contact/</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/contact/"/>
+  </url>
+  <url>
+    <loc>https://economiadetras.com/en/contact/</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/contact/"/>
+  </url>
+  <url>
+    <loc>https://economiadetras.com/it/contact/</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://economiadetras.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://economiadetras.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://economiadetras.com/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://economiadetras.com/es/contact/"/>
+  </url>
+
+  <!-- PRIVACIDAD -->
+  <url>
+    <loc>https://economiadetras.com/es/privacy/</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+</urlset>
