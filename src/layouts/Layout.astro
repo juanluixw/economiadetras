@@ -6,7 +6,8 @@ const {
     title,
     description,
     lang = 'es',
-    currentPath = '/'
+    currentPath = '/',
+    ogType = 'website'
 } = Astro.props;
 
 const currentLang = lang as Language;
@@ -14,6 +15,9 @@ const t = ui[currentLang];
 
 const pageTitle = title ?? t.siteName;
 const pageDescription = description ?? t.footerText;
+
+const siteUrl = 'https://economiadetras.com';
+const canonicalUrl = `${siteUrl}${currentPath}`;
 
 const paths = {
     es: {
@@ -44,6 +48,12 @@ const p = paths[currentLang];
 const getLocalizedPath = (targetLang: Language) => {
     return currentPath.replace(/^\/(es|en|it)/, `/${targetLang}`);
 };
+
+const hreflangUrls = {
+    es: `${siteUrl}${getLocalizedPath('es')}`,
+    en: `${siteUrl}${getLocalizedPath('en')}`,
+    it: `${siteUrl}${getLocalizedPath('it')}`,
+};
 ---
 
 <!DOCTYPE html>
@@ -53,10 +63,26 @@ const getLocalizedPath = (targetLang: Language) => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription}>
-    <link rel="canonical" href={`https://economiadetras.com${currentPath}`}>
+    <link rel="canonical" href={canonicalUrl}>
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+    <!-- hreflang: indica a Google las versiones por idioma -->
+    <link rel="alternate" hreflang="es" href={hreflangUrls.es}>
+    <link rel="alternate" hreflang="en" href={hreflangUrls.en}>
+    <link rel="alternate" hreflang="it" href={hreflangUrls.it}>
+    <link rel="alternate" hreflang="x-default" href={hreflangUrls.es}>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType}>
+    <meta property="og:title" content={pageTitle}>
+    <meta property="og:description" content={pageDescription}>
+    <meta property="og:url" content={canonicalUrl}>
+    <meta property="og:locale" content={currentLang === 'es' ? 'es_ES' : currentLang === 'en' ? 'en_GB' : 'it_IT'}>
+    <meta property="og:site_name" content="Economía Detrás del Titular">
+    <meta property="og:image" content={`${siteUrl}/images/dt-logo.png`}>
+    <meta property="og:image:alt" content={pageTitle}>
 </head>
 
 <body>
