@@ -34,11 +34,16 @@ header {
 }
 
 .logo {
-    font-size: 30px;
+    font-size: clamp(15px, 2.5vw, 30px);
     font-weight: bold;
     letter-spacing: -0.5px;
     color: #111;
     text-decoration: none;
+}
+
+.logo-icon {
+    width: clamp(28px, 3vw, 42px);
+    height: clamp(28px, 3vw, 42px);
 }
 
 nav {
@@ -409,6 +414,11 @@ footer {
 
     .hamburger {
         display: flex;
+        order: 2;
+    }
+
+    .logo {
+        order: 1;
     }
 
     .nav-wrapper {
@@ -417,9 +427,9 @@ footer {
         align-items: flex-start;
         gap: 0;
         width: 100%;
+        order: 3;
         padding: 20px 0 10px;
         border-top: 1px solid #eee;
-        margin-top: 15px;
     }
 
     .nav-wrapper.open {
@@ -522,8 +532,6 @@ footer {
 }
 
 .logo-icon {
-    width: 42px;
-    height: 42px;
     display: block;
 }
 .article-content table,
