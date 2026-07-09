@@ -6,6 +6,7 @@ category: "Aziende e Finanza"
 lang: "it"
 featured: true
 draft: false
+image: "/images/articles/2026-07-02-essilorluxottica.jpg"
 ---
 
 ![EssilorLuxottica](/images/articles/2026-07-02-essilorluxottica.jpg)

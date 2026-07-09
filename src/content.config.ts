@@ -13,7 +13,8 @@ const articles = defineCollection({
         category: z.string(),
         lang: z.enum(['es', 'en', 'it']),
         featured: z.boolean().default(false),
-        draft: z.boolean().default(false)
+        draft: z.boolean().default(false),
+        image: z.string().optional()
     })
 });
 

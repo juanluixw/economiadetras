@@ -6,6 +6,7 @@ category: "Política monetaria"
 lang: "es"
 featured: true
 draft: false
+image: "/images/articles/2026-06-11-bce.jpg"
 ---
 
 ![Sede del Banco Central Europeo en Frankfurt](/images/articles/2026-06-11-bce.jpg)

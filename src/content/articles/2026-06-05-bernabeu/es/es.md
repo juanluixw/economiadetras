@@ -6,6 +6,7 @@ category: "Empresas y Finanzas"
 lang: "es"
 featured: true
 draft: false
+image: "/images/articles/2026-06-05-bernabeu.jpg"
 ---
 
 ![Estadio Santiago Bernabéu](/images/articles/2026-06-05-bernabeu.jpg)

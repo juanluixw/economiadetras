@@ -36,15 +36,22 @@ const sortedArticles = articles.sort(
         <div class="article-list">
             {sortedArticles.map((article) => (
                 <article class="article-list-item">
-                    <p class="category">
-                        {article.data.category} · {article.data.date.toLocaleDateString(currentLang)}
-                    </p>
+                    {article.data.image && (
+                        <a href={`/${currentLang}/articles/${article.id.split('/')[0]}/`} class="article-list-image-link">
+                            <img src={article.data.image} alt={article.data.title} class="article-list-image" loading="lazy" />
+                        </a>
+                    )}
+                    <div class="article-list-body">
+                        <p class="category">
+                            {article.data.category} · {article.data.date.toLocaleDateString(currentLang)}
+                        </p>
                         <h2>
                             <a href={`/${currentLang}/articles/${article.id.split('/')[0]}/`}>
                                 {article.data.title}
                             </a>
                         </h2>
-                    <p>{article.data.description}</p>
+                        <p>{article.data.description}</p>
+                    </div>
                 </article>
             ))}
         </div>

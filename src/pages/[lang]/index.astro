@@ -68,16 +68,21 @@ const articleBasePath = `/${currentLang}/articles`;
         <div class="cards-grid">
             {latestArticles.map((article) => (
                 <article class="card">
-                    <p class="category">
-                        {article.data.category} · {article.data.date.toLocaleDateString(currentLang)}
-                    </p>
-
-                    <h3>{article.data.title}</h3>
-                    <p>{article.data.description}</p>
-
-                    <a class="read-more" href={`${articleBasePath}/${getArticleSlug(article.id)}/`}>
-                        {t.readMore}
-                    </a>
+                    {article.data.image && (
+                        <a href={`${articleBasePath}/${getArticleSlug(article.id)}/`} class="card-image-link">
+                            <img src={article.data.image} alt={article.data.title} class="card-image" loading="lazy" />
+                        </a>
+                    )}
+                    <div class="card-body">
+                        <p class="category">
+                            {article.data.category} · {article.data.date.toLocaleDateString(currentLang)}
+                        </p>
+                        <h3>{article.data.title}</h3>
+                        <p>{article.data.description}</p>
+                        <a class="read-more" href={`${articleBasePath}/${getArticleSlug(article.id)}/`}>
+                            {t.readMore}
+                        </a>
+                    </div>
                 </article>
             ))}
         </div>

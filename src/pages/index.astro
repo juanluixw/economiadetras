@@ -1,3 +1,7 @@
 ---
-return Astro.redirect('/es/');
 ---
+<script>
+    const lang = navigator.language?.split('-')[0].toLowerCase();
+    const target = lang === 'es' ? '/es/' : lang === 'it' ? '/it/' : '/en/';
+    window.location.replace(target);
+</script>

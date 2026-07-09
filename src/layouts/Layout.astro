@@ -54,6 +54,8 @@ const hreflangUrls = {
     en: `${siteUrl}${getLocalizedPath('en')}`,
     it: `${siteUrl}${getLocalizedPath('it')}`,
 };
+
+const isActive = (href: string) => currentPath === href || currentPath.startsWith(href.replace(/\/$/, '/'));
 ---
 
 <!DOCTYPE html>
@@ -83,6 +85,8 @@ const hreflangUrls = {
     <meta property="og:site_name" content="Economía Detrás del Titular">
     <meta property="og:image" content={`${siteUrl}/images/dt-logo.png`}>
     <meta property="og:image:alt" content={pageTitle}>
+
+    <slot name="head" />
 </head>
 
 <body>
@@ -92,19 +96,35 @@ const hreflangUrls = {
                 <img src="/images/dt-logo.png" alt="DT" class="logo-icon" />
                 <span>{t.siteName}</span>
             </a>
-            <nav>
-                <a href={p.home}>{t.home}</a>
-                <a href={p.articles}>{t.articles}</a>
-                <a href={p.about}>{t.about}</a>
-                <a href={p.contact}>{t.contact}</a>
-            </nav>
 
-            <div class="language-switcher">
-                <a href={getLocalizedPath('es')}>ES</a>
-                <a href={getLocalizedPath('en')}>EN</a>
-                <a href={getLocalizedPath('it')}>IT</a>
+            <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <div class="nav-wrapper" id="nav-wrapper">
+                <nav>
+                    <a href={p.home} class={isActive(p.home) && !currentPath.includes('/articles') && !currentPath.includes('/about') && !currentPath.includes('/contact') ? 'nav-active' : ''}>{t.home}</a>
+                    <a href={p.articles} class={currentPath.includes('/articles') ? 'nav-active' : ''}>{t.articles}</a>
+                    <a href={p.about} class={currentPath.includes('/about') ? 'nav-active' : ''}>{t.about}</a>
+                    <a href={p.contact} class={currentPath.includes('/contact') ? 'nav-active' : ''}>{t.contact}</a>
+                </nav>
+
+                <div class="language-switcher">
+                    <a href={getLocalizedPath('es')}>ES</a>
+                    <a href={getLocalizedPath('en')}>EN</a>
+                    <a href={getLocalizedPath('it')}>IT</a>
+                </div>
             </div>
         </div>
+
+        <script>
+            const btn = document.getElementById('hamburger');
+            const nav = document.getElementById('nav-wrapper');
+            btn?.addEventListener('click', () => {
+                const open = nav?.classList.toggle('open');
+                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+        </script>
     </header>
 
     <main>

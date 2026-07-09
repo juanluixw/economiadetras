@@ -59,6 +59,13 @@ nav a:hover,
     color: #004b7c;
 }
 
+nav a.nav-active {
+    color: #004b7c;
+    font-weight: bold;
+    border-bottom: 2px solid #004b7c;
+    padding-bottom: 2px;
+}
+
 .language-switcher {
     display: flex;
     gap: 10px;
@@ -144,19 +151,8 @@ nav a:hover,
 
 .card {
     background: white;
-    padding: 28px;
     border-top: 5px solid #004b7c;
-}
-
-.card h3 {
-    font-size: 28px;
-    line-height: 1.15;
-    margin-bottom: 15px;
-}
-
-.card p {
-    color: #555;
-    line-height: 1.6;
+    overflow: hidden;
 }
 
 .read-more {
@@ -175,17 +171,7 @@ nav a:hover,
 
 .article-list-item {
     background: white;
-    padding: 30px;
     border-top: 5px solid #004b7c;
-}
-
-.article-list-item h2 {
-    margin-bottom: 12px;
-}
-
-.article-list-item h2 a {
-    color: #111;
-    text-decoration: none;
 }
 
 .article-page {
@@ -285,14 +271,170 @@ footer {
     color: #555;
 }
 
+/* Card image */
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image-link {
+    display: block;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.card-image-link:hover .card-image {
+    transform: scale(1.03);
+}
+
+.card-body {
+    padding: 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body h3 {
+    font-size: 28px;
+    line-height: 1.15;
+    margin-bottom: 15px;
+}
+
+.card-body p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Article list image */
+.article-list-item {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+    overflow: hidden;
+}
+
+.article-list-image-link {
+    display: block;
+    overflow: hidden;
+}
+
+.article-list-image {
+    width: 100%;
+    height: 100%;
+    min-height: 180px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.article-list-image-link:hover .article-list-image {
+    transform: scale(1.03);
+}
+
+.article-list-body {
+    padding: 30px;
+}
+
+.article-list-body h2 {
+    margin-bottom: 12px;
+}
+
+.article-list-body h2 a {
+    color: #111;
+    text-decoration: none;
+}
+
+/* Progress bar */
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #004b7c;
+    z-index: 1000;
+    transition: width 0.1s linear;
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #111;
+    transition: all 0.25s ease;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
 @media (max-width: 900px) {
     .header-inner {
-        display: block;
+        flex-wrap: wrap;
+        position: relative;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-wrapper {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        width: 100%;
+        padding: 20px 0 10px;
+        border-top: 1px solid #eee;
+        margin-top: 15px;
+    }
+
+    .nav-wrapper.open {
+        display: flex;
     }
 
     nav {
-        margin-top: 20px;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+
+    nav a {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 16px;
     }
 
     .language-switcher {
@@ -331,6 +473,14 @@ footer {
         margin-top: 12px;
     }
 
+    .article-list-item {
+        grid-template-columns: 1fr;
+    }
+
+    .article-list-image {
+        height: 200px;
+        min-height: unset;
+    }
 }
 .contact-box {
     background: white;

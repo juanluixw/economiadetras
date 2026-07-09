@@ -6,6 +6,7 @@ category: "Monetary Policy"
 lang: "en"
 featured: true
 draft: false
+image: "/images/articles/2026-06-11-bce.jpg"
 ---
 
 ![European Central Bank headquarters in Frankfurt](/images/articles/2026-06-11-bce.jpg)

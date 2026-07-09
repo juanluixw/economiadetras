@@ -28,7 +28,45 @@ const { article, slug } = Astro.props;
 const currentLang = article.data.lang as Language;
 const t = ui[currentLang];
 
-const { Content } = await render(article);
+const { Content, remarkPluginFrontmatter } = await render(article);
+
+const wordCount = article.body?.split(/\s+/).length ?? 0;
+const readingMinutes = Math.max(1, Math.round(wordCount / 200));
+const readingLabel = currentLang === 'es'
+    ? `${readingMinutes} min de lectura`
+    : currentLang === 'it'
+    ? `${readingMinutes} min di lettura`
+    : `${readingMinutes} min read`;
+
+const siteUrl = 'https://economiadetras.com';
+const articleUrl = `${siteUrl}/${currentLang}/articles/${slug}/`;
+const siteName = t.siteName;
+
+const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.data.title,
+    description: article.data.description,
+    datePublished: article.data.date.toISOString(),
+    dateModified: article.data.date.toISOString(),
+    url: articleUrl,
+    inLanguage: currentLang,
+    author: {
+        '@type': 'Person',
+        name: 'Juan Luis Ciudad',
+        url: `${siteUrl}/${currentLang}/about/`
+    },
+    publisher: {
+        '@type': 'Organization',
+        name: siteName,
+        url: siteUrl
+    },
+    ...(article.data.image && { image: `${siteUrl}${article.data.image}` }),
+    mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': articleUrl
+    }
+};
 
 const relatedArticles = (
     await getCollection('articles', ({ data }) => {
@@ -50,9 +88,21 @@ const relatedArticles = (
     currentPath={`/${currentLang}/articles/${slug}/`}
     ogType="article"
 >
+    <script type="application/ld+json" slot="head" set:html={JSON.stringify(schema)} />
+    <div id="progress-bar"></div>
+    <script>
+        const bar = document.getElementById('progress-bar');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            if (bar) bar.style.width = `${pct}%`;
+        });
+    </script>
+
     <article class="container article-page">
         <p class="category">
-            {article.data.category} · {article.data.date.toLocaleDateString(currentLang)}
+            {article.data.category} · {article.data.date.toLocaleDateString(currentLang)} · {readingLabel}
         </p>
 
         <h1>{article.data.title}</h1>
@@ -71,20 +121,21 @@ const relatedArticles = (
             <div class="cards-grid">
                 {relatedArticles.map((item) => (
                     <article class="card">
-                        <p class="category">
-                            {item.data.category} · {item.data.date.toLocaleDateString(currentLang)}
-                        </p>
-
-                        <h3>{item.data.title}</h3>
-
-                        <p>{item.data.description}</p>
-
-                        <a
-                            class="read-more"
-                            href={`/${currentLang}/articles/${item.id.split('/')[0]}/`}
-                        >
-                            {t.readMore}
-                        </a>
+                        {item.data.image && (
+                            <a href={`/${currentLang}/articles/${item.id.split('/')[0]}/`} class="card-image-link">
+                                <img src={item.data.image} alt={item.data.title} class="card-image" loading="lazy" />
+                            </a>
+                        )}
+                        <div class="card-body">
+                            <p class="category">
+                                {item.data.category} · {item.data.date.toLocaleDateString(currentLang)}
+                            </p>
+                            <h3>{item.data.title}</h3>
+                            <p>{item.data.description}</p>
+                            <a class="read-more" href={`/${currentLang}/articles/${item.id.split('/')[0]}/`}>
+                                {t.readMore}
+                            </a>
+                        </div>
                     </article>
                 ))}
             </div>
