@@ -9,7 +9,7 @@ draft: false
 image: "/images/articles/2026-07-09-nvidia-5.jpg"
 ---
 
-![NVIDIA a 5.000 miliardi di dollari](/images/articles/22026-07-09-nvidia-5.jpg)
+![NVIDIA a 5.000 miliardi di dollari](/images/articles/2026-07-09-nvidia-5.jpg)
 
 # NVIDIA a 5.000 miliardi di dollari: è ancora a buon mercato?
 
